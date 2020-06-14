@@ -25,6 +25,9 @@ export const FeaturedArticle = () => {
     >
       <Row>
         <Tilt
+          glareEnable={true}
+          glarePosition="all"
+          glareMaxOpacity={0.2}
           tiltAngleXInitial={0}
           tiltAngleYInitial={-10}
           tiltMaxAngleX={25}

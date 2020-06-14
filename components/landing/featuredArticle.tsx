@@ -27,13 +27,13 @@ export const FeaturedArticle = () => {
         <Tilt
           glareEnable={true}
           glarePosition="all"
-          glareMaxOpacity={0.2}
-          tiltAngleXInitial={0}
-          tiltAngleYInitial={-10}
-          tiltMaxAngleX={25}
-          tiltMaxAngleY={25}
+          glareMaxOpacity={0.15}
+          tiltMaxAngleX={3}
+          tiltMaxAngleY={3}
         >
           <Image
+            $boxShadow="-4px 4px 30px rgba(0,0,0,.25)"
+            $borderRadius={px(10)}
             src="/example_featured.png"
             $width="570px auto"
             $maxWidth={px(570)}

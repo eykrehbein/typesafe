@@ -11,6 +11,8 @@ import { Text } from "@/components/Text";
 import { Image } from "@/components/Image";
 import { ArticleProps } from "@/utils/types";
 import { CodeBlock } from "@/components/global/CodeBlock";
+import { Row } from "@/components/Row";
+import { Anchor } from "@/components/Anchor";
 
 interface ArticlePageProps {
     articleInfo: ArticleProps;
@@ -30,15 +32,6 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
                     name="description"
                     content={"Typesafe Article: " + articleInfo.title}
                 />
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-                    rel="stylesheet"
-                ></link>
-
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap"
-                    rel="stylesheet"
-                ></link>
             </Head>
 
             <Box
@@ -78,6 +71,53 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
                             $marginTop={px(40)}
                             $width={percent(100)}
                         />
+
+                        <Row
+                            $align="center"
+                            $justify="center"
+                            $marginTop={px(40)}
+                            $maxWidth={percent(100)}
+                        >
+                            {articleInfo.author.profilePicture && (
+                                <Image
+                                    alt="Author Image"
+                                    src={articleInfo.author.profilePicture}
+                                    $height={px(40)}
+                                    $width={px(40)}
+                                    $borderRadius={percent(500)}
+                                />
+                            )}
+
+                            <Anchor
+                                href={
+                                    articleInfo.author.linkedIn ||
+                                    articleInfo.author.github ||
+                                    undefined
+                                }
+                                target="_blank"
+                                $color="#C5C5C5"
+                                $ff="Poppins"
+                                $marginLeft={px(15)}
+                            >
+                                by <u>{articleInfo.author.name}</u>
+                            </Anchor>
+
+                            <Text
+                                $marginLeft={px(35)}
+                                $ff="Poppins"
+                                $color="#C5C5C5"
+                            >
+                                {articleInfo.date}
+                            </Text>
+
+                            <Text
+                                $marginLeft={px(35)}
+                                $ff="Poppins"
+                                $color="#C5C5C5"
+                            >
+                                {articleInfo.timeToRead} min read
+                            </Text>
+                        </Row>
                     </Box>
 
                     <Box

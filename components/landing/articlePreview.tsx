@@ -17,87 +17,72 @@ export const ArticlePreview = ({
     thumbnail,
     title,
     timeToRead,
-}: ArticleProps) => {
-    const router = useRouter();
-
-    const comesFromInternalPage = router.query.f === "i";
-
-    return (
+}: ArticleProps) => (
+    <CardBody $marginTop={px(40)} $padding={px(30)} $width={percent(33.3)}>
         <Link
             href={`/article/[articleTitle]`}
             as={`article/${generateFriendlyString(title)}`}
         >
             <a>
-                <CardBody
-                    initial={{ opacity: 0 }}
-                    animate={{
-                        opacity: 1,
-                        transition: { delay: !comesFromInternalPage ? 0.7 : 0 },
-                    }}
-                    $marginTop={px(40)}
-                    $padding={px(30)}
-                    $width={percent(33.3)}
-                >
-                    <Box $width={percent(100)}>
-                        <Image
-                            alt="Article Thumbnail"
-                            src={thumbnail}
-                            $borderRadius={px(10)}
-                            $height={px(235)}
-                            $width={percent(100)}
-                        />
+                <Box $width={percent(100)}>
+                    <Image
+                        alt="Article Thumbnail"
+                        src={thumbnail}
+                        $borderRadius={px(10)}
+                        $height={px(235)}
+                        $width={percent(100)}
+                    />
 
-                        <Box $marginTop={px(15)} $maxWidth={percent(100)}>
-                            <Text
-                                $ff="Poppins"
-                                $fontWeight="bold"
-                                $fontSize={px(28)}
-                                $lineHeight={1.3}
-                            >
-                                {title}
-                            </Text>
-                        </Box>
-
-                        <Row $align="center" $marginTop={px(15)}>
-                            {tags.map((tag, index) => (
-                                <Box
-                                    key={index}
-                                    $backgroundColor={
-                                        tag.backgroundColor || "black"
-                                    }
-                                    $color={tag.color || "white"}
-                                    $padding={multiplePx(5, 20)}
-                                    $borderRadius={px(5)}
-                                >
-                                    <Text
-                                        $ff="Poppins"
-                                        $fontWeight={600}
-                                        $fontSize={px(11)}
-                                    >
-                                        {tag.name}
-                                    </Text>
-                                </Box>
-                            ))}
-
-                            <Text
-                                $color="rgba(0, 0, 0, 0.4)"
-                                $fontSize={px(14)}
-                                $marginLeft={px(15)}
-                            >
-                                {date}
-                            </Text>
-
-                            <Text
-                                $color="rgba(0, 0, 0, 0.4)"
-                                $fontSize={px(14)}
-                                $marginLeft={px(15)}
-                            >
-                                {timeToRead} min read
-                            </Text>
-                        </Row>
+                    <Box $marginTop={px(15)} $maxWidth={percent(100)}>
+                        <Text
+                            $ff="Poppins"
+                            $fontWeight="bold"
+                            $fontSize={px(28)}
+                            $lineHeight={1.3}
+                        >
+                            {title}
+                        </Text>
                     </Box>
-                </CardBody>
+
+                    <Row $align="center" $marginTop={px(15)}>
+                        {tags.map((tag, index) => (
+                            <Box
+                                key={index}
+                                $backgroundColor={
+                                    tag.backgroundColor || "black"
+                                }
+                                $color={tag.color || "white"}
+                                $padding={multiplePx(5, 20)}
+                                $borderRadius={px(5)}
+                            >
+                                <Text
+                                    $ff="Poppins"
+                                    $fontWeight={600}
+                                    $fontSize={px(11)}
+                                >
+                                    {tag.name}
+                                </Text>
+                            </Box>
+                        ))}
+
+                        <Text
+                            $color="rgba(0, 0, 0, 0.4)"
+                            $fontSize={px(14)}
+                            $marginLeft={px(15)}
+                        >
+                            {date}
+                        </Text>
+
+                        <Text
+                            $color="rgba(0, 0, 0, 0.4)"
+                            $fontSize={px(14)}
+                            $marginLeft={px(15)}
+                        >
+                            {timeToRead} min read
+                        </Text>
+                    </Row>
+                </Box>
             </a>
         </Link>
-    );
-};
+    </CardBody>
+);

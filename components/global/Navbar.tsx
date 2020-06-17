@@ -57,11 +57,6 @@ export const Navbar = () => (
                 </Text>
             </Row>
             <Row>
-                {/**
-        <Link href="/advertise">
-           <NavbarAnchor href="/advertise" $marginRight={px(40)}>
-            Advertise
-</NavbarAnchor>         </Link> */}
                 <Link href="/author">
                     <NavbarAnchor href="/author">Become an author</NavbarAnchor>
                 </Link>

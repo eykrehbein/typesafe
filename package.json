@@ -5,7 +5,9 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
-        "start": "next start"
+        "start": "next start",
+        "export": "next export",
+        "build-netlify": "next build && next export"
     },
     "dependencies": {
         "@atomize/component": "^0.3.2",

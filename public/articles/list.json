@@ -1,0 +1,39 @@
+{
+    "featured": {
+        "date": "22nd APRIL 2020",
+        "tags": [
+            { "name": "JAVASCRIPT" },
+            {
+                "name": "FEATURED",
+                "backgroundColor": "black",
+                "color": "#00CC87"
+            }
+        ],
+        "thumbnail": "/example_featured.png",
+        "title": "The logic behind Javascript Tag Functions",
+        "subTitle": "How styled-components changed the world",
+        "author": {
+            "name": "Eyk Rehbein",
+            "github": "https://github.com/eykrehbein",
+            "linkedIn": "https://linkedin.com/eykrehbein",
+            "profilePicture": ""
+        },
+        "timeToRead": 6
+    },
+    "standard": [
+        {
+            "date": "22nd JUNE 2020",
+            "thumbnail": "/example_preview.jpg",
+            "title": "Mobile Development in 2020",
+            "tags": [{ "name": "JAVASCRIPT" }],
+            "timeToRead": 6,
+            "subTitle": "How styled-components changed the world",
+            "author": {
+                "name": "Eyk Rehbein",
+                "github": "https://github.com/eykrehbein",
+                "linkedIn": "https://linkedin.com/eykrehbein",
+                "profilePicture": ""
+            }
+        }
+    ]
+}

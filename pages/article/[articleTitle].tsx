@@ -5,7 +5,11 @@ import ReactMarkdown from "react-markdown";
 import { percent, px, multiplePx } from "@atomize/component";
 import hljs from "highlight.js";
 
-import { useArticlesList, generateFriendlyString } from "@/utils/helpers";
+import {
+    useArticlesList,
+    generateFriendlyString,
+    usePreloadedImage,
+} from "@/utils/helpers";
 import { Box } from "@/components/Box";
 import { Text } from "@/components/Text";
 import { Image } from "@/components/Image";
@@ -24,6 +28,10 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
         return null;
     }
 
+    const { hasLoaded: hasThumbnailLoaded } = usePreloadedImage(
+        articleInfo.thumbnail
+    );
+
     return (
         <>
             <Head>
@@ -36,7 +44,7 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
 
             <Box
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={{ opacity: hasThumbnailLoaded ? 1 : 0 }}
                 $align="center"
                 $padding={multiplePx(0, 20)}
                 $width={percent(100)}

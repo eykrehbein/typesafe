@@ -9,7 +9,7 @@
                 "color": "#00CC87"
             }
         ],
-        "thumbnail": "/example_featured.png",
+        "thumbnail": "/example_1.jpg",
         "title": "The logic behind Javascript Tag Functions",
         "subTitle": "How styled-components changed the world",
         "author": {
@@ -23,7 +23,21 @@
     "standard": [
         {
             "date": "22nd JUNE 2020",
-            "thumbnail": "/example_preview.jpg",
+            "thumbnail": "/example_2.jpg",
+            "title": "Why scuba driving rocks",
+            "tags": [{ "name": "JAVASCRIPT" }],
+            "timeToRead": 6,
+            "subTitle": "How styled-components changed the world",
+            "author": {
+                "name": "Eyk Rehbein",
+                "github": "https://github.com/eykrehbein",
+                "linkedIn": "https://linkedin.com/in/eykrehbein",
+                "profilePicture": "/eyk_profile_picture.png"
+            }
+        },
+        {
+            "date": "22nd JUNE 2020",
+            "thumbnail": "/example_1.jpg",
             "title": "Mobile Development in 2020",
             "tags": [{ "name": "JAVASCRIPT" }],
             "timeToRead": 6,

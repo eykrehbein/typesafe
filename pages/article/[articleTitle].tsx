@@ -103,6 +103,7 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
                                     undefined
                                 }
                                 target="_blank"
+                                rel="noopener"
                                 $color="#C5C5C5"
                                 $ff="Poppins"
                                 $marginLeft={px(15)}

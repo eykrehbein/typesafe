@@ -10,7 +10,11 @@ import { Image } from "@/components/Image";
 import { Text } from "@/components/Text";
 import { CardBody } from "@/components/landing/cardBody";
 import { ArticleProps } from "@/utils/types";
-import { generateFriendlyString, usePreloadedImage } from "@/utils/helpers";
+import {
+    generateFriendlyString,
+    usePreloadedImage,
+    useBreakpoints,
+} from "@/utils/helpers";
 import { UnstyledAnchor } from "@/components/UnstyledAnchor";
 
 interface FeaturedArticleProps {
@@ -19,6 +23,8 @@ interface FeaturedArticleProps {
 
 export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
     const { hasLoaded } = usePreloadedImage(article.thumbnail);
+
+    const { isMobile, isSmaller, isNormal } = useBreakpoints();
 
     return (
         <Link
@@ -29,11 +35,11 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
                 <CardBody
                     disableHoverTransform
                     $marginTop={px(40)}
-                    $padding={multiplePx(30, 0, 30, 30)}
+                    $padding={multiplePx(50, 0, 50, 30)}
                     $width={percent(100)}
                     $opacity={hasLoaded ? 1 : 0}
                 >
-                    <Row>
+                    <Row $align="center">
                         <Tilt
                             glareEnable={true}
                             glarePosition="all"
@@ -44,20 +50,20 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
                         >
                             <Image
                                 alt="Featured Article Image"
-                                src="/example_featured.png"
+                                src={article.thumbnail}
                                 $boxShadow="-4px 4px 30px rgba(0,0,0,.25)"
                                 $borderRadius={px(10)}
-                                $width="570px auto"
+                                $width={px(570)}
                                 $maxWidth={px(570)}
                             />
                         </Tilt>
-                        <Box $padding={multiplePx(30, 150, 0, 50)}>
+                        <Box $padding={multiplePx(30, 0, 0, 50)}>
                             <Text
                                 dangerouslySetInnerHTML={{
                                     __html: article.title,
                                 }}
                                 $ff="Poppins"
-                                $fontSize={px(56)}
+                                $fontSize={isNormal ? px(56) : px(38)}
                                 $fontWeight="bold"
                                 $lineHeight={1.3}
                                 $margin={0}

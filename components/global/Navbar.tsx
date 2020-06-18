@@ -7,6 +7,7 @@ import { Row } from "@/components/Row";
 import { Image } from "@/components/Image";
 import { Anchor } from "@/components/Anchor";
 import { Text } from "@/components/Text";
+import { useBreakpoints } from "@/utils/helpers";
 
 const NavbarAnchor = styled(Anchor)`
     font-family: Poppins;
@@ -20,47 +21,58 @@ const NavbarAnchor = styled(Anchor)`
     }
 `;
 
-export const Navbar = () => (
-    <Row
-        $borderBottomLeftRadius={px(10)}
-        $borderBottomRightRadius={px(10)}
-        $backgroundColor="rgba(255,255,255,0.95)"
-        $padding={multiplePx(0, 15)}
-        $position="sticky"
-        $top={0}
-        $width={percent(100)}
-        $zIndex={1000}
-    >
+export const Navbar = () => {
+    const { isMobile, isSmaller } = useBreakpoints();
+
+    console.log({ isMobile, isSmaller });
+
+    return (
         <Row
-            $align="center"
-            $justify="space-between"
-            $padding={multiplePx(25, 0)}
+            $borderBottomLeftRadius={px(10)}
+            $borderBottomRightRadius={px(10)}
+            $backgroundColor="rgba(255,255,255,0.95)"
+            $padding={multiplePx(0, !isSmaller && !isMobile ? 15 : 40)}
+            $position="sticky"
+            $top={0}
             $width={percent(100)}
+            $zIndex={1000}
         >
-            <Row $align="center">
-                <Link href="/?f=i">
-                    <a>
-                        <Image
-                            alt="Logo"
-                            src="/typesafe.png"
-                            $cursor="pointer"
-                        />
-                    </a>
-                </Link>
-                <Text
-                    $marginLeft={px(30)}
-                    $marginBottom={px(4)}
-                    $color="rgba(0,0,0,0.3)"
-                    $fontSize={px(13)}
-                >
-                    Exclusive frontend blog
-                </Text>
-            </Row>
-            <Row>
-                <Link href="/author">
-                    <NavbarAnchor href="/author">Become an author</NavbarAnchor>
-                </Link>
+            <Row
+                $align="center"
+                $justify="space-between"
+                $padding={multiplePx(25, 0)}
+                $width={percent(100)}
+            >
+                <Row $align="center">
+                    <Link href="/?f=i">
+                        <a>
+                            <Image
+                                alt="Logo"
+                                src="/typesafe.png"
+                                $cursor="pointer"
+                                $maxWidth={px(118)}
+                            />
+                        </a>
+                    </Link>
+                    {!isMobile && (
+                        <Text
+                            $marginLeft={px(30)}
+                            $marginBottom={px(4)}
+                            $color="rgba(0,0,0,0.3)"
+                            $fontSize={px(13)}
+                        >
+                            Exclusive frontend blog
+                        </Text>
+                    )}
+                </Row>
+                <Row>
+                    <Link href="/getting-featured">
+                        <NavbarAnchor href="/getting-featured">
+                            Become an author
+                        </NavbarAnchor>
+                    </Link>
+                </Row>
             </Row>
         </Row>
-    </Row>
-);
+    );
+};

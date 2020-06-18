@@ -17,19 +17,24 @@ export const Footer = () => (
         <Text $color="rgba(0,0,0,0.3)" $ff="Open Sans" $fontSize={px(12)}>
             typesafe.blog - Made by{" "}
             <Anchor
+                href="https://www.linkedin.com/in/eykrehbein"
+                rel="noreferrer"
+                target="_blank"
+                $textDecoration="underline"
                 $color="rgba(0,0,0,0.3)"
                 $ff="Open Sans"
                 $marginTop={px(10)}
                 $fontSize={px(12)}
-                href="https://www.linkedin.com/in/eykrehbein"
-                target="_blank"
-                $textDecoration="underline"
             >
                 Eyk Rehbein
             </Anchor>
         </Text>
         <Row $marginTop={px(10)}>
-            <a href="https://www.linkedin.com/in/eykrehbein" target="_blank">
+            <a
+                href="https://www.linkedin.com/in/eykrehbein"
+                target="_blank"
+                rel="noreferrer"
+            >
                 <Box
                     $align="center"
                     $justify="center"
@@ -38,11 +43,19 @@ export const Footer = () => (
                     $height={px(30)}
                     $width={px(30)}
                 >
-                    <Image src="/icons/linkedin.svg" $width={px(13)} />
+                    <Image
+                        alt="Creator LinkedIn"
+                        src="/icons/linkedin.svg"
+                        $width={px(13)}
+                    />
                 </Box>
             </a>
 
-            <a href="https://github.com/eykrehbein" target="_blank">
+            <a
+                href="https://github.com/eykrehbein"
+                target="_blank"
+                rel="noreferrer"
+            >
                 <Box
                     $align="center"
                     $justify="center"
@@ -52,17 +65,21 @@ export const Footer = () => (
                     $marginLeft={px(10)}
                     $width={px(30)}
                 >
-                    <Image src="/icons/github.svg" $width={px(13)} />
+                    <Image
+                        alt="Creator Github"
+                        src="/icons/github.svg"
+                        $width={px(13)}
+                    />
                 </Box>
             </a>
         </Row>
 
         <Anchor
+            href="/privacy"
             $color="rgba(0,0,0,0.3)"
             $ff="Open Sans"
             $marginTop={px(10)}
             $fontSize={px(12)}
-            href="/privacy"
             $textDecoration="underline"
         >
             Privacy Policy

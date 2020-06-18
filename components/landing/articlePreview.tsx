@@ -9,7 +9,11 @@ import { Image } from "@/components/Image";
 import { CardBody } from "@/components/landing/cardBody";
 import { Text } from "@/components/Text";
 import { Row } from "@/components/Row";
-import { generateFriendlyString, usePreloadedImage } from "@/utils/helpers";
+import {
+    generateFriendlyString,
+    usePreloadedImage,
+    useBreakpoints,
+} from "@/utils/helpers";
 
 export const ArticlePreview = ({
     date,
@@ -19,6 +23,8 @@ export const ArticlePreview = ({
     timeToRead,
 }: ArticleProps) => {
     const { hasLoaded } = usePreloadedImage(thumbnail);
+
+    const { isSmaller } = useBreakpoints();
 
     return (
         <CardBody
@@ -33,13 +39,15 @@ export const ArticlePreview = ({
             >
                 <a>
                     <Box $width={percent(100)}>
-                        <Image
-                            alt="Article Thumbnail"
-                            src={thumbnail}
-                            $borderRadius={px(10)}
-                            $height={px(235)}
-                            $width={percent(100)}
-                        />
+                        <Box>
+                            <Image
+                                alt="Article Thumbnail"
+                                src={thumbnail}
+                                $borderRadius={px(10)}
+                                $maxHeight={isSmaller ? px(200) : px(220)}
+                                $objectFit="cover"
+                            />
+                        </Box>
 
                         <Box $marginTop={px(15)} $maxWidth={percent(100)}>
                             <Text

@@ -1,4 +1,6 @@
 import { useState, useEffect, useLayoutEffect } from "react";
+import { createBreakpoint } from "react-use";
+
 import { ArticleProps, ArticleObject } from "@/utils/types";
 
 export const chunk = <T>(arr: T[], chunkSize = 1, cache = []) => {
@@ -54,4 +56,20 @@ export const usePreloadedImage = (src: string) => {
     }, [src]);
 
     return { hasLoaded, hasError };
+};
+
+const useBreakpoint = createBreakpoint({
+    NORMAL: 1400,
+    SMALL: 1070,
+    MOBILE: 0,
+});
+
+export const useBreakpoints = () => {
+    const breakpoint = useBreakpoint();
+
+    return {
+        isMobile: breakpoint === "MOBILE",
+        isSmaller: breakpoint === "SMALL",
+        isNormal: breakpoint === "NORMAL",
+    };
 };

@@ -9,6 +9,7 @@ import {
     useArticlesList,
     generateFriendlyString,
     usePreloadedImage,
+    useBreakpoints,
 } from "@/utils/helpers";
 import { Box } from "@/components/Box";
 import { Text } from "@/components/Text";
@@ -25,13 +26,15 @@ interface ArticlePageProps {
 }
 
 export default ({ articleInfo, content }: ArticlePageProps) => {
-    if (!articleInfo) {
-        return null;
-    }
-
     const { hasLoaded: hasThumbnailLoaded } = usePreloadedImage(
         articleInfo.thumbnail
     );
+
+    const { isMobile } = useBreakpoints();
+
+    if (!articleInfo) {
+        return null;
+    }
 
     return (
         <>
@@ -45,7 +48,7 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
 
             <Box
                 $align="center"
-                $padding={multiplePx(0, 20)}
+                $padding={multiplePx(0, isMobile ? 0 : 20)}
                 $width={percent(100)}
             >
                 <Box $marginTop={px(60)} $maxWidth={px(720)}>
@@ -56,7 +59,7 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
                     >
                         <Text
                             $lineHeight={1.3}
-                            $fontSize={px(57)}
+                            $fontSize={px(isMobile ? 36 : 57)}
                             $fontWeight="bold"
                         >
                             {articleInfo.title}
@@ -100,8 +103,8 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
                                 <Image
                                     alt="Author Image"
                                     src={articleInfo.author.profilePicture}
-                                    $height={px(40)}
-                                    $width={px(40)}
+                                    $height={px(isMobile ? 20 : 40)}
+                                    $width={px(isMobile ? 20 : 40)}
                                     $borderRadius={percent(500)}
                                 />
                             )}
@@ -116,23 +119,28 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
                                 rel="noopener"
                                 $color="#C5C5C5"
                                 $ff="Poppins"
-                                $marginLeft={px(15)}
+                                $marginLeft={px(
+                                    articleInfo.author.profilePicture ? 15 : 0
+                                )}
+                                $fontSize={isMobile ? px(12) : undefined}
                             >
                                 by <u>{articleInfo.author.name}</u>
                             </Anchor>
 
                             <Text
-                                $marginLeft={px(35)}
+                                $marginLeft={px(isMobile ? 15 : 35)}
                                 $ff="Poppins"
                                 $color="#C5C5C5"
+                                $fontSize={isMobile ? px(12) : undefined}
                             >
                                 {articleInfo.date}
                             </Text>
 
                             <Text
-                                $marginLeft={px(35)}
+                                $marginLeft={px(isMobile ? 15 : 35)}
                                 $ff="Poppins"
                                 $color="#C5C5C5"
+                                $fontSize={isMobile ? px(12) : undefined}
                             >
                                 {articleInfo.timeToRead} min read
                             </Text>

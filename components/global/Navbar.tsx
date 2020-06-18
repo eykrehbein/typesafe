@@ -40,7 +40,10 @@ export const Navbar = () => {
             $borderBottomLeftRadius={px(10)}
             $borderBottomRightRadius={px(10)}
             $backgroundColor="rgba(255,255,255,0.95)"
-            $padding={multiplePx(0, !isSmaller && !isMobile ? 15 : 40)}
+            $padding={multiplePx(
+                0,
+                !isSmaller && !isMobile ? 15 : isMobile ? 0 : 40
+            )}
             $position="sticky"
             $top={0}
             $width={percent(100)}

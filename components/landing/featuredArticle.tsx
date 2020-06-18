@@ -27,7 +27,7 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
 
     const { hasLoaded } = usePreloadedImage(article.thumbnail);
 
-    const { isMobile, isSmaller, isNormal } = useBreakpoints();
+    const { isSmaller, isNormal } = useBreakpoints();
 
     return (
         <Link

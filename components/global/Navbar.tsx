@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { percent, px, multiplePx } from "@atomize/component";
 import Link from "next/link";
 import styled from "styled-components";
@@ -8,6 +8,7 @@ import { Image } from "@/components/Image";
 import { Anchor } from "@/components/Anchor";
 import { Text } from "@/components/Text";
 import { useBreakpoints } from "@/utils/helpers";
+import { useRouter } from "next/router";
 
 const NavbarAnchor = styled(Anchor)`
     font-family: Poppins;
@@ -22,9 +23,17 @@ const NavbarAnchor = styled(Anchor)`
 `;
 
 export const Navbar = () => {
+    const router = useRouter();
+
     const { isMobile, isSmaller } = useBreakpoints();
 
-    console.log({ isMobile, isSmaller });
+    const [isInternalFlag, setIsInternalFlag] = useState(false);
+
+    useEffect(() => {
+        if (router.pathname === "/") {
+            setIsInternalFlag(true);
+        }
+    }, [router.pathname]);
 
     return (
         <Row
@@ -44,7 +53,7 @@ export const Navbar = () => {
                 $width={percent(100)}
             >
                 <Row $align="center">
-                    <Link href="/?f=i">
+                    <Link href={isInternalFlag ? "/?f=i" : "/"}>
                         <a>
                             <Image
                                 alt="Logo"

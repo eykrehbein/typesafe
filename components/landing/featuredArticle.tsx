@@ -23,6 +23,8 @@ interface FeaturedArticleProps {
 }
 
 export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
+    const router = useRouter();
+
     const { hasLoaded } = usePreloadedImage(article.thumbnail);
 
     const { isMobile, isSmaller, isNormal } = useBreakpoints();
@@ -33,7 +35,7 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
             as={`article/${generateFriendlyString(article.title)}`}
         >
             <a>
-                {!hasLoaded && (
+                {!hasLoaded && router.query.f !== "i" && (
                     <Box
                         $padding={multiplePx(50, 10, 50, 30)}
                         $width={percent(100)}
@@ -50,6 +52,7 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
                         $marginTop={px(40)}
                         $padding={multiplePx(50, 10, 50, 30)}
                         $width={percent(100)}
+                        $opacity={hasLoaded ? 1 : 0}
                     >
                         <Row $align="center">
                             <Tilt

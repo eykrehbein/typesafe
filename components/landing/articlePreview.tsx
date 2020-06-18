@@ -23,11 +23,13 @@ export const ArticlePreview = ({
     title,
     timeToRead,
 }: ArticleProps) => {
+    const router = useRouter();
+
     const { hasLoaded } = usePreloadedImage(thumbnail);
 
     const { isSmaller } = useBreakpoints();
 
-    if (!hasLoaded) {
+    if (!hasLoaded && router.query.f !== "i") {
         return (
             <Box $marginTop={px(40)} $padding={px(30)} $width={percent(33.3)}>
                 <LoadingIndicator $width={percent(100)} $height={px(400)} />

@@ -17,6 +17,7 @@ import { ArticleProps } from "@/utils/types";
 import { CodeBlock } from "@/components/global/CodeBlock";
 import { Row } from "@/components/Row";
 import { Anchor } from "@/components/Anchor";
+import { LoadingIndicator } from "@/components/LoadingIndicator";
 
 interface ArticlePageProps {
     articleInfo: ArticleProps;
@@ -43,8 +44,6 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
             </Head>
 
             <Box
-                initial={{ opacity: 0 }}
-                animate={{ opacity: hasThumbnailLoaded ? 1 : 0 }}
                 $align="center"
                 $padding={multiplePx(0, 20)}
                 $width={percent(100)}
@@ -72,13 +71,24 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
                             {articleInfo.subTitle}
                         </Text>
 
-                        <Image
-                            alt="Article Thumbnail"
-                            src={articleInfo.thumbnail}
-                            $borderRadius={px(10)}
-                            $marginTop={px(40)}
-                            $width={percent(100)}
-                        />
+                        {hasThumbnailLoaded && (
+                            <Image
+                                alt="Article Thumbnail"
+                                src={articleInfo.thumbnail}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                $borderRadius={px(10)}
+                                $marginTop={px(40)}
+                                $width={percent(100)}
+                            />
+                        )}
+                        {!hasThumbnailLoaded && (
+                            <LoadingIndicator
+                                $marginTop={px(40)}
+                                $width={percent(100)}
+                                $height={px(400)}
+                            />
+                        )}
 
                         <Row
                             $align="center"

@@ -11,9 +11,9 @@ interface ThemeContextProps {
 
 export const { Context: ThemeContext, Provider: ThemeProvider } = createContext<
     ThemeContextProps
->({ theme: createDefaultContextState("dark") }, () => {
+>({ theme: createDefaultContextState("light") }, () => {
     const [theme, setTheme] = useState<ThemeContextProps["theme"]["value"]>(
-        "dark"
+        "light"
     );
 
     return {

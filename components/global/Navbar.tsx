@@ -76,7 +76,7 @@ export const Navbar = () => {
                 $width={percent(100)}
                 $maxWidth={px(1295)}
             >
-                <Row $align="center">
+                <Row $align="center" $marginTop={px(5)}>
                     <Link href={isInternalFlag ? "/?f=i" : "/"}>
                         <a>
                             <Image
@@ -106,7 +106,7 @@ export const Navbar = () => {
                         </Text>
                     )}
                 </Row>
-                <Row>
+                <Row $align="center">
                     <Box $paddingRight={px(30)}>
                         <Image
                             alt="Dark Mode toggle"

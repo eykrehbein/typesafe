@@ -18,8 +18,9 @@ export default ({ Component, pageProps }) => (
                 rel="stylesheet"
             ></link>
         </Head>
+
+        <Navbar />
         <MainBody>
-            <Navbar />
             <Component {...pageProps} />
         </MainBody>
 

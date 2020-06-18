@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { percent, px, multiplePx } from "@atomize/component";
+import { percent, px, multiplePx, vw } from "@atomize/component";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -42,18 +42,21 @@ export const Navbar = () => {
             $backgroundColor="rgba(255,255,255,0.95)"
             $padding={multiplePx(
                 0,
-                !isSmaller && !isMobile ? 15 : isMobile ? 0 : 40
+                !isSmaller && !isMobile ? 15 : isMobile ? 40 : 40
             )}
             $position="sticky"
             $top={0}
             $width={percent(100)}
             $zIndex={1000}
+            $align="center"
+            $justify="center"
         >
             <Row
                 $align="center"
                 $justify="space-between"
                 $padding={multiplePx(25, 0)}
                 $width={percent(100)}
+                $maxWidth={px(1295)}
             >
                 <Row $align="center">
                     <Link href={isInternalFlag ? "/?f=i" : "/"}>

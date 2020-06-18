@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Head from "next/head";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import ReactMarkdown from "react-markdown";
@@ -19,6 +19,7 @@ import { CodeBlock } from "@/components/global/CodeBlock";
 import { Row } from "@/components/Row";
 import { Anchor } from "@/components/Anchor";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
+import { ThemeContext } from "@/utils/context";
 
 interface ArticlePageProps {
     articleInfo: ArticleProps;
@@ -31,6 +32,8 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
     );
 
     const { isMobile } = useBreakpoints();
+
+    const { theme } = useContext(ThemeContext);
 
     if (!articleInfo) {
         return null;
@@ -61,12 +64,19 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
                             $lineHeight={1.3}
                             $fontSize={px(isMobile ? 36 : 57)}
                             $fontWeight="bold"
+                            $color={
+                                theme.value === "dark" ? "#E8E6E3" : undefined
+                            }
                         >
                             {articleInfo.title}
                         </Text>
 
                         <Text
-                            $color="rgba(0,0,0,0.3)"
+                            $color={
+                                theme.value === "dark"
+                                    ? "#9B9B9B"
+                                    : "rgba(0,0,0,0.3)"
+                            }
                             $marginTop={px(12)}
                             $fontWeight={500}
                             $fontSize={px(18)}
@@ -149,6 +159,7 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
 
                     <Box
                         className="mdc"
+                        $color={theme.value === "dark" ? "#E8E6E3" : undefined}
                         $marginTop={px(40)}
                         $width={percent(100)}
                     >

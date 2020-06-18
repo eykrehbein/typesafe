@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { px, percent, multiplePx } from "@atomize/component";
@@ -15,6 +15,7 @@ import {
     useBreakpoints,
 } from "@/utils/helpers";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
+import { ThemeContext } from "@/utils/context";
 
 export const ArticlePreview = ({
     date,
@@ -28,6 +29,8 @@ export const ArticlePreview = ({
     const { hasLoaded } = usePreloadedImage(thumbnail);
 
     const { isSmaller } = useBreakpoints();
+
+    const { theme } = useContext(ThemeContext);
 
     if (!hasLoaded && router.query.f !== "i") {
         return (
@@ -62,6 +65,11 @@ export const ArticlePreview = ({
 
                         <Box $marginTop={px(15)} $maxWidth={percent(100)}>
                             <Text
+                                $color={
+                                    theme.value === "dark"
+                                        ? "#E8E6E3"
+                                        : undefined
+                                }
                                 $ff="Poppins"
                                 $fontWeight="bold"
                                 $fontSize={px(28)}
@@ -93,7 +101,11 @@ export const ArticlePreview = ({
                             ))}
 
                             <Text
-                                $color="rgba(0, 0, 0, 0.4)"
+                                $color={
+                                    theme.value === "dark"
+                                        ? "#9B9B9B"
+                                        : "rgba(0,0,0,0.4)"
+                                }
                                 $fontSize={px(14)}
                                 $marginLeft={px(15)}
                             >
@@ -101,7 +113,11 @@ export const ArticlePreview = ({
                             </Text>
 
                             <Text
-                                $color="rgba(0, 0, 0, 0.4)"
+                                $color={
+                                    theme.value === "dark"
+                                        ? "#9B9B9B"
+                                        : "rgba(0,0,0,0.4)"
+                                }
                                 $fontSize={px(14)}
                                 $marginLeft={px(15)}
                             >

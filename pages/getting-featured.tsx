@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Head from "next/head";
 import { px, percent, vh, multiplePx } from "@atomize/component";
 
@@ -8,9 +8,12 @@ import { Image } from "@/components/Image";
 import { Button } from "@/components/Button";
 import { Anchor } from "@/components/Anchor";
 import { usePreloadedImage } from "@/utils/helpers";
+import { ThemeContext } from "@/utils/context";
 
 export default () => {
     const { hasLoaded } = usePreloadedImage("/typesafe.png");
+
+    const { theme } = useContext(ThemeContext);
 
     return (
         <>
@@ -29,13 +32,23 @@ export default () => {
                 $width={percent(100)}
                 $opacity={hasLoaded ? 1 : 0}
             >
-                <Text $color="rgba(0,0,0,0.3)" $ff="Poppins" $fontWeight={600}>
+                <Text
+                    $color={
+                        theme.value === "dark" ? "#9b9b9b" : "rgba(0,0,0,0.3)"
+                    }
+                    $ff="Poppins"
+                    $fontWeight={600}
+                >
                     Getting featured on
                 </Text>
                 <Box $marginTop={px(10)}>
                     <Image
                         alt="Typesafe Logo"
-                        src="/typesafe.png"
+                        src={
+                            theme.value === "dark"
+                                ? "/typesafe_light.png"
+                                : "/typesafe.png"
+                        }
                         $width={px(290)}
                     />
                 </Box>
@@ -48,7 +61,7 @@ export default () => {
                 >
                     <Text
                         $ff="Open Sans"
-                        $color="black"
+                        $color={theme.value === "dark" ? "#E8E6E3" : "black"}
                         $lineHeight={1.7}
                         $fontSize={px(18)}
                     >

@@ -4,6 +4,7 @@ import "./global.scss";
 import { MainBody } from "@/components/global/MainBody";
 import { Navbar } from "@/components/global/Navbar";
 import { Footer } from "@/components/global/Footer";
+import { ThemeProvider } from "@/utils/context";
 
 // This default export is required in a new `pages/_app.js` file.
 export default ({ Component, pageProps }) => (
@@ -19,11 +20,13 @@ export default ({ Component, pageProps }) => (
             ></link>
         </Head>
 
-        <Navbar />
-        <MainBody>
-            <Component {...pageProps} />
-        </MainBody>
+        <ThemeProvider>
+            <Navbar />
+            <MainBody>
+                <Component {...pageProps} />
+            </MainBody>
 
-        <Footer />
+            <Footer />
+        </ThemeProvider>
     </>
 );

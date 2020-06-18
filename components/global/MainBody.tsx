@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { px, percent, vh, multiplePx } from "@atomize/component";
 
 import { Box } from "@/components/Box";
 import { useBreakpoints } from "@/utils/helpers";
+import { ThemeContext } from "@/utils/context";
 
 export const MainBody = ({ children }: { children: React.ReactNode }) => {
     const { isMobile, isSmaller } = useBreakpoints();
+    const { theme } = useContext(ThemeContext);
 
     return (
         <Box
             $align="center"
+            $backgroundColor={theme.value === "dark" ? "#181A1B" : "white"}
             $justify="center"
             $padding={multiplePx(0, isSmaller || isMobile ? 40 : 0, 200)}
             $width={percent(100)}

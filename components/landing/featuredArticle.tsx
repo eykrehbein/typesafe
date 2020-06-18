@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Tilt from "react-parallax-tilt";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -17,6 +17,7 @@ import {
 } from "@/utils/helpers";
 import { UnstyledAnchor } from "@/components/UnstyledAnchor";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
+import { ThemeContext } from "@/utils/context";
 
 interface FeaturedArticleProps {
     article: ArticleProps;
@@ -24,6 +25,8 @@ interface FeaturedArticleProps {
 
 export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
     const router = useRouter();
+
+    const { theme } = useContext(ThemeContext);
 
     const { hasLoaded } = usePreloadedImage(article.thumbnail);
 
@@ -82,17 +85,26 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
                                     $fontWeight="bold"
                                     $lineHeight={1.3}
                                     $margin={0}
+                                    $color={
+                                        theme.value === "dark"
+                                            ? "#E8E6E3"
+                                            : undefined
+                                    }
                                 />
 
                                 <Text
                                     dangerouslySetInnerHTML={{
                                         __html: article.subTitle,
                                     }}
-                                    $color="rgba(0,0,0,0.4)"
                                     $ff="Poppins"
                                     $fontWeight={600}
                                     $fontSize={px(18)}
                                     $marginTop={px(8)}
+                                    $color={
+                                        theme.value === "dark"
+                                            ? "#9B9B9B"
+                                            : "rgba(0,0,0,0.4)"
+                                    }
                                 />
 
                                 <Row>
@@ -118,19 +130,17 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
                                     ))}
                                 </Row>
 
-                                <Row $marginTop={px(16)}>
-                                    <Text
-                                        $color="rgba(0,0,0,0.4)"
-                                        $ff="Poppins"
-                                    >
-                                        {article.date}
-                                    </Text>
+                                <Row
+                                    $color={
+                                        theme.value === "dark"
+                                            ? "#9B9B9B"
+                                            : "rgba(0,0,0,0.4)"
+                                    }
+                                    $marginTop={px(16)}
+                                >
+                                    <Text $ff="Poppins">{article.date}</Text>
 
-                                    <Text
-                                        $color="rgba(0,0,0,0.4)"
-                                        $ff="Poppins"
-                                        $marginLeft={px(15)}
-                                    >
+                                    <Text $ff="Poppins" $marginLeft={px(15)}>
                                         {article.timeToRead} min read
                                     </Text>
                                 </Row>

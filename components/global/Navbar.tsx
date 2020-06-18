@@ -111,7 +111,9 @@ export const Navbar = () => {
                         <Image
                             alt="Dark Mode toggle"
                             src={
-                                theme.value === "dark" ? "/sun.svg" : "moon.svg"
+                                theme.value === "dark"
+                                    ? "/sun.svg"
+                                    : "/moon.svg"
                             }
                             onClick={handleToggleDarkmode}
                             $cursor="pointer"

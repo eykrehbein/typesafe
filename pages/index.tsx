@@ -20,7 +20,7 @@ export default () => {
     return (
         <>
             <Head>
-                <title>Typesafe - Exclusive Frontend Blog</title>
+                <title>Typesafe - Exclusive Frontend Articles</title>
                 <meta
                     name="description"
                     content="Stay on the cutting edge of frontend development with interesting articles from passionate frontend developers"

@@ -45,16 +45,24 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
                 <title>{articleInfo.title} | Typesafe</title>
                 <meta
                     name="description"
-                    content={"Typesafe Article: " + articleInfo.title}
+                    content={
+                        "Typesafe Article: " +
+                        articleInfo.title +
+                        " - " +
+                        articleInfo.subTitle
+                    }
                 />
             </Head>
 
             <Box
                 $align="center"
-                $padding={multiplePx(0, isMobile ? 0 : 20)}
+                $padding={multiplePx(0, isMobile ? 0 : 10)}
                 $width={percent(100)}
             >
-                <Box $marginTop={px(60)} $maxWidth={px(720)}>
+                <Box
+                    $marginTop={px(60)}
+                    $maxWidth={isMobile ? percent(100) : px(720)}
+                >
                     <Box
                         $align="center"
                         $textAlign="center"
@@ -165,6 +173,7 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
                     >
                         <ReactMarkdown
                             source={content}
+                            linkTarget="_blank"
                             renderers={{ code: CodeBlock }}
                         />
                     </Box>

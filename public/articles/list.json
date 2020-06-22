@@ -1,6 +1,6 @@
 {
     "featured": {
-        "date": "22nd APRIL 2020",
+        "date": "22nd JUNE 2020",
         "tags": [
             { "name": "JAVASCRIPT" },
             {
@@ -11,23 +11,23 @@
         ],
         "thumbnail": "/example_1.jpg",
         "title": "The logic behind Javascript Tag Functions",
-        "subTitle": "How styled-components changed the world",
+        "subTitle": "Why it is good to know how tag functions work",
         "author": {
             "name": "Eyk Rehbein",
             "github": "https://github.com/eykrehbein",
             "linkedIn": "https://linkedin.com/in/eykrehbein",
-            "profilePicture": ""
+            "profilePicture": "/eyk_profile_picture.png"
         },
-        "timeToRead": 6
+        "timeToRead": 3
     },
     "standard": [
         {
             "date": "22nd JUNE 2020",
             "thumbnail": "/example_2.jpg",
-            "title": "Why scuba driving rocks",
+            "title": "Clean code isn't everything",
             "tags": [{ "name": "JAVASCRIPT" }],
             "timeToRead": 6,
-            "subTitle": "How styled-components changed the world",
+            "subTitle": "Clean code is very important, but that's not the whole story.",
             "author": {
                 "name": "Eyk Rehbein",
                 "github": "https://github.com/eykrehbein",
@@ -41,7 +41,7 @@
             "title": "Mobile Development in 2020",
             "tags": [{ "name": "JAVASCRIPT" }],
             "timeToRead": 6,
-            "subTitle": "How styled-components changed the world",
+            "subTitle": "",
             "author": {
                 "name": "Eyk Rehbein",
                 "github": "https://github.com/eykrehbein",

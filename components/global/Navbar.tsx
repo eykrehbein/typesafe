@@ -102,7 +102,7 @@ export const Navbar = () => {
                             }
                             $fontSize={px(13)}
                         >
-                            Exclusive frontend articles
+                            Inspiring frontend articles
                         </Text>
                     )}
                 </Row>

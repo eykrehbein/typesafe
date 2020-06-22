@@ -75,7 +75,7 @@ export default () => {
                     <Anchor
                         $width={percent(100)}
                         $marginTop={px(40)}
-                        href="mailto:author@typesafe.blog"
+                        href="mailto:eyk@typesafe.blog"
                     >
                         <Box
                             whileHover={{

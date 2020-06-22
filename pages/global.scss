@@ -20,7 +20,7 @@ $primary: #0984e3;
 
 .mdc {
     font-size: 18px;
-    line-height: 2;
+    line-height: 1.9;
     font-family: "Open Sans";
 
     hr {
@@ -28,14 +28,16 @@ $primary: #0984e3;
         border: 1px double rgba(0, 0, 0, 0.2);
         height: 1px;
     }
-
     h1,
-    h2,
+    h2 {
+        margin: 20px 0px;
+    }
+
     h3,
     h4,
     h5,
     h6 {
-        margin: 10px 0px;
+        margin: 10px 0px 0px;
     }
 
     a {
@@ -46,16 +48,16 @@ $primary: #0984e3;
     }
 
     blockquote {
-        background: white;
+        background: transparent;
         border-left: 5px solid $primary;
-        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.05);
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
 
         margin: 1.5em 10px;
-        padding: 0.5em 20px;
+        padding: 1em 20px;
     }
 
     ul,
     ol {
-        margin: 0;
+        margin: 0px 0px 15px;
     }
 }

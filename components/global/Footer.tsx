@@ -87,6 +87,26 @@ export const Footer = () => {
                         />
                     </Box>
                 </a>
+
+                <a href="mailto:eyk@typesafe.blog">
+                    <Box
+                        $align="center"
+                        $justify="center"
+                        $backgroundColor={
+                            theme.value === "dark" ? "transparent" : "#E4E4E4"
+                        }
+                        $borderRadius={percent(50)}
+                        $height={px(30)}
+                        $marginLeft={px(10)}
+                        $width={px(30)}
+                    >
+                        <Image
+                            alt="Creator Mail"
+                            src="/icons/mail.svg"
+                            $width={px(13)}
+                        />
+                    </Box>
+                </a>
             </Row>
 
             <Anchor

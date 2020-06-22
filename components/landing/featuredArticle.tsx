@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import Tilt from "react-parallax-tilt";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 import { Box } from "@/components/Box";
 import { px, percent, multiplePx } from "@atomize/component";
@@ -24,8 +23,6 @@ interface FeaturedArticleProps {
 }
 
 export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
-    const router = useRouter();
-
     const { theme } = useContext(ThemeContext);
 
     const { hasLoaded } = usePreloadedImage(article.thumbnail);
@@ -38,116 +35,111 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
             as={`article/${generateFriendlyString(article.title)}`}
         >
             <a>
-                {!hasLoaded && router.query.f !== "i" && (
-                    <Box
-                        $padding={multiplePx(50, 10, 50, 30)}
-                        $width={percent(100)}
-                    >
-                        <LoadingIndicator
-                            $width={percent(100)}
-                            $height={px(500)}
-                        />
-                    </Box>
-                )}
-                {hasLoaded && (
-                    <CardBody
-                        disableHoverTransform
-                        $marginTop={px(40)}
-                        $padding={multiplePx(50, 10, 50, 30)}
-                        $width={percent(100)}
-                        $opacity={hasLoaded ? 1 : 0}
-                    >
-                        <Row $align="center">
-                            <Tilt
-                                glareEnable={true}
-                                glarePosition="all"
-                                glareMaxOpacity={0.15}
-                                tiltMaxAngleX={3}
-                                tiltMaxAngleY={3}
-                                tiltReverse={true}
-                            >
-                                <Image
-                                    alt="Featured Article Image"
-                                    src={article.thumbnail}
-                                    $boxShadow="-4px 4px 30px rgba(0,0,0,.25)"
-                                    $borderRadius={px(10)}
+                <CardBody
+                    disableHoverTransform
+                    $marginTop={px(40)}
+                    $padding={multiplePx(50, 10, 50, 30)}
+                    $width={percent(100)}
+                >
+                    <Row $align="center">
+                        <Tilt
+                            glareEnable={true}
+                            glarePosition="all"
+                            glareMaxOpacity={0.15}
+                            tiltMaxAngleX={3}
+                            tiltMaxAngleY={3}
+                            tiltReverse={true}
+                        >
+                            <Image
+                                alt="Featured Article Image"
+                                src={article.thumbnail}
+                                $boxShadow="-4px 4px 30px rgba(0,0,0,.25)"
+                                $borderRadius={px(10)}
+                                $width={px(570)}
+                                $maxWidth={px(570)}
+                                $position={hasLoaded ? undefined : "absolute"}
+                                $opacity={hasLoaded ? 1 : 0}
+                            />
+
+                            {!hasLoaded && (
+                                <LoadingIndicator
                                     $width={px(570)}
-                                    $maxWidth={px(570)}
+                                    $height={px(350)}
                                 />
-                            </Tilt>
-                            <Box $padding={multiplePx(30, 0, 0, 50)}>
-                                <Text
-                                    dangerouslySetInnerHTML={{
-                                        __html: article.title,
-                                    }}
-                                    $ff="Poppins"
-                                    $fontSize={isNormal ? px(56) : px(38)}
-                                    $fontWeight="bold"
-                                    $lineHeight={1.3}
-                                    $margin={0}
-                                    $color={
-                                        theme.value === "dark"
-                                            ? "#E8E6E3"
-                                            : undefined
-                                    }
-                                />
+                            )}
+                        </Tilt>
+                        <Box $padding={multiplePx(30, 0, 0, 50)}>
+                            <Text
+                                dangerouslySetInnerHTML={{
+                                    __html: article.title,
+                                }}
+                                $ff="Poppins"
+                                $fontSize={isNormal ? px(56) : px(38)}
+                                $fontWeight="bold"
+                                $lineHeight={1.3}
+                                $margin={0}
+                                $color={
+                                    theme.value === "dark"
+                                        ? "#E8E6E3"
+                                        : undefined
+                                }
+                            />
 
-                                <Text
-                                    dangerouslySetInnerHTML={{
-                                        __html: article.subTitle,
-                                    }}
-                                    $ff="Poppins"
-                                    $fontWeight={600}
-                                    $fontSize={px(18)}
-                                    $marginTop={px(8)}
-                                    $color={
-                                        theme.value === "dark"
-                                            ? "#9B9B9B"
-                                            : "rgba(0,0,0,0.4)"
-                                    }
-                                />
+                            <Text
+                                dangerouslySetInnerHTML={{
+                                    __html: article.subTitle,
+                                }}
+                                $ff="Poppins"
+                                $fontWeight={600}
+                                $fontSize={px(18)}
+                                $marginTop={px(8)}
+                                $color={
+                                    theme.value === "dark"
+                                        ? "#9B9B9B"
+                                        : "rgba(0,0,0,0.4)"
+                                }
+                            />
 
-                                <Row>
-                                    {article.tags.map((tag, index) => (
-                                        <Box
-                                            key={index}
-                                            $align="center"
-                                            $background={
-                                                tag.backgroundColor || "black"
-                                            }
-                                            $borderRadius={px(5)}
-                                            $color={tag.color || "white"}
-                                            $ff="Poppins"
-                                            $fontSize={px(14)}
-                                            $fontWeight={600}
-                                            $justify="center"
-                                            $padding={multiplePx(5, 20)}
-                                            $marginTop={px(16)}
-                                            $marginLeft={index !== 0 && px(10)}
-                                        >
-                                            {tag.name}
-                                        </Box>
-                                    ))}
-                                </Row>
+                            <Row>
+                                {article.tags.map((tag, index) => (
+                                    <Box
+                                        key={index}
+                                        $align="center"
+                                        $background={
+                                            tag.backgroundColor || "black"
+                                        }
+                                        $borderRadius={px(5)}
+                                        $color={tag.color || "white"}
+                                        $ff="Poppins"
+                                        $fontSize={px(14)}
+                                        $fontWeight={600}
+                                        $justify="center"
+                                        $padding={multiplePx(5, 20)}
+                                        $marginTop={px(16)}
+                                        $marginLeft={index !== 0 && px(10)}
+                                    >
+                                        {tag.name}
+                                    </Box>
+                                ))}
+                            </Row>
 
-                                <Row
-                                    $color={
-                                        theme.value === "dark"
-                                            ? "#9B9B9B"
-                                            : "rgba(0,0,0,0.4)"
-                                    }
-                                    $marginTop={px(16)}
-                                >
-                                    <Text $ff="Poppins">{article.date}</Text>
+                            <Row
+                                $color={
+                                    theme.value === "dark"
+                                        ? "#9B9B9B"
+                                        : "rgba(0,0,0,0.4)"
+                                }
+                                $marginTop={px(16)}
+                            >
+                                <Text $ff="Poppins">{article.date}</Text>
 
-                                    <Text $ff="Poppins" $marginLeft={px(15)}>
-                                        {article.timeToRead} min read
-                                    </Text>
-                                </Row>
-                            </Box>
-                        </Row>
-                    </CardBody>
-                )}
+                                <Text $ff="Poppins" $marginLeft={px(15)}>
+                                    {article.timeToRead} min read
+                                </Text>
+                            </Row>
+                        </Box>
+                    </Row>
+                </CardBody>
             </a>
         </Link>
     );

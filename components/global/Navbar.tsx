@@ -120,12 +120,14 @@ export const Navbar = () => {
                             $width={px(20)}
                         />
                     </Box>
-                    <Link href="/article/publish-an-article-on-typesafe">
+                    <Link
+                        href={`/article/[articleTitle]`}
+                        as="article/publish-an-article-on-typesafe"
+                    >
                         <NavbarAnchor
                             $color={
                                 theme.value === "dark" ? "#E8E6E3" : undefined
                             }
-                            href="/article/publish-an-article-on-typesafe"
                         >
                             Become an author
                         </NavbarAnchor>

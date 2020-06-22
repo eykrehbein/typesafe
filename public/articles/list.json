@@ -9,7 +9,7 @@
                 "color": "#00CC87"
             }
         ],
-        "thumbnail": "/example_1.jpg",
+        "thumbnail": "/example_1.png",
         "title": "The logic behind Javascript Tag Functions",
         "subTitle": "Why it is good to know how tag functions work",
         "author": {
@@ -37,7 +37,7 @@
         },
         {
             "date": "22nd JUNE 2020",
-            "thumbnail": "/example_1.jpg",
+            "thumbnail": "/example_2.jpg",
             "title": "Mobile Development in 2020",
             "tags": [{ "name": "JAVASCRIPT" }],
             "timeToRead": 6,

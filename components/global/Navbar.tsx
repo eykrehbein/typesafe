@@ -77,7 +77,7 @@ export const Navbar = () => {
                 $maxWidth={px(1295)}
             >
                 <Row $align="center" $marginTop={px(5)}>
-                    <Link href={isInternalFlag ? "/?f=i" : "/"}>
+                    <Link href={isInternalFlag ? "/" : "/"}>
                         <a>
                             <Image
                                 alt="Logo"

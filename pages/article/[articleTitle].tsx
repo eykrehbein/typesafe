@@ -92,22 +92,26 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
                             {articleInfo.subTitle}
                         </Text>
 
-                        {hasThumbnailLoaded && (
-                            <Image
-                                alt="Article Thumbnail"
-                                src={articleInfo.thumbnail}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                $borderRadius={px(10)}
-                                $marginTop={px(40)}
-                                $width={percent(100)}
-                            />
-                        )}
+                        <Image
+                            alt="Article Thumbnail"
+                            src={articleInfo.thumbnail}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            $borderRadius={px(10)}
+                            $marginTop={px(40)}
+                            $width={!hasThumbnailLoaded ? 0 : percent(100)}
+                            $opacity={hasThumbnailLoaded ? 1 : 0}
+                            $position={
+                                hasThumbnailLoaded ? undefined : "absolute"
+                            }
+                        />
+
                         {!hasThumbnailLoaded && (
                             <LoadingIndicator
                                 $marginTop={px(40)}
                                 $width={percent(100)}
                                 $height={px(400)}
+                                $maxWidth={px(570)}
                             />
                         )}
 

@@ -122,7 +122,7 @@ export const Navbar = () => {
                     </Box>
                     <Link
                         href={`/article/[articleTitle]`}
-                        as="article/publish-an-article-on-typesafe"
+                        as="/article/publish-an-article-on-typesafe"
                     >
                         <NavbarAnchor
                             $color={

@@ -30,6 +30,8 @@ You can send your article to _[eyk@typesafe.blog](mailto:eyk@typesafe.blog)_. Th
 -   (optional) Github Profile Link
 -   (optional) Your "profile picture"
 
+Your name, LinkedIn profile, Github profile and profile picture will be included with the post, so it is clear that you are the author of the post.
+
 Since Typesafe is very exclusive and the main focus is on the quality of the content, every submission will be reviewed. In case your application was not accepted, please do not feel offended, there may simply have been too many submissions.
 
 If you have any questions or other comments on the product, feel free to send them via email to [eyk@typesafe.blog](mailto:eyk@typesafe.blog)!

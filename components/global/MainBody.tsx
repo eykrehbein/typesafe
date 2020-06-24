@@ -14,7 +14,7 @@ export const MainBody = ({ children }: { children: React.ReactNode }) => {
             $align="center"
             $backgroundColor={theme.value === "dark" ? "#181A1B" : "white"}
             $justify="center"
-            $padding={multiplePx(0, isSmaller || isMobile ? 40 : 0, 200)}
+            $padding={multiplePx(0, isSmaller ? 40 : isMobile ? 20 : 0, 200)}
             $width={percent(100)}
         >
             <Box

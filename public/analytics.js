@@ -10,7 +10,5 @@
     o.id = "fathom-script";
     m.parentNode.insertBefore(o, m);
 })(document, window, "//stats.typesafe.blog/tracker.js", "fathom");
-if (window?.location.hostname === "typesafe.blog") {
-    fathom("set", "siteId", "UENJW");
-    fathom("trackPageview");
-}
+fathom("set", "siteId", "UENJW");
+fathom("trackPageview");

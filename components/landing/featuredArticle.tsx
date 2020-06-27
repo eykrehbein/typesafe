@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useRef } from "react";
 import Tilt from "react-parallax-tilt";
 import Link from "next/link";
+import { useHoverDirty } from "react-use";
 
 import { Box } from "@/components/Box";
 import { px, percent, multiplePx } from "@atomize/component";
@@ -14,7 +15,6 @@ import {
     usePreloadedImage,
     useBreakpoints,
 } from "@/utils/helpers";
-import { UnstyledAnchor } from "@/components/UnstyledAnchor";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { ThemeContext } from "@/utils/context";
 
@@ -23,11 +23,14 @@ interface FeaturedArticleProps {
 }
 
 export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
+    const featuredImageRef = useRef<HTMLImageElement>();
     const { theme } = useContext(ThemeContext);
 
     const { hasLoaded } = usePreloadedImage(article.thumbnail);
 
-    const { isSmaller, isNormal } = useBreakpoints();
+    const { isNormal } = useBreakpoints();
+
+    const isHoveringImage = useHoverDirty(featuredImageRef);
 
     return (
         <Link
@@ -43,7 +46,8 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
                 >
                     <Row $align="center">
                         <Tilt
-                            glareEnable={true}
+                            tiltEnable={isHoveringImage}
+                            glareEnable={isHoveringImage}
                             glarePosition="all"
                             glareMaxOpacity={0.15}
                             tiltMaxAngleX={3}
@@ -53,6 +57,7 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
                             <Image
                                 alt="Featured Article Image"
                                 src={article.thumbnail}
+                                ref={featuredImageRef}
                                 $boxShadow="-4px 4px 30px rgba(0,0,0,.25)"
                                 $borderRadius={px(10)}
                                 $width={px(570)}
@@ -68,6 +73,7 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
                                 />
                             )}
                         </Tilt>
+
                         <Box $padding={multiplePx(30, 0, 0, 50)}>
                             <Text
                                 dangerouslySetInnerHTML={{

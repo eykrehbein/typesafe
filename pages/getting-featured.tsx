@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Head from "next/head";
 import { px, percent, vh, multiplePx } from "@atomize/component";
+import { useFetchImage } from "@eyk/hooks";
 
 import { Box } from "@/components/Box";
 import { Text } from "@/components/Text";
@@ -11,7 +12,7 @@ import { usePreloadedImage } from "@/utils/helpers";
 import { ThemeContext } from "@/utils/context";
 
 export default () => {
-    const { hasLoaded } = usePreloadedImage("/typesafe.png");
+    const { hasLoaded } = useFetchImage("/typesafe.png");
 
     const { theme } = useContext(ThemeContext);
 

@@ -1036,6 +1036,11 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
+"@eyk/hooks@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@eyk/hooks/-/hooks-0.1.1.tgz#95f1e822fe49470c9769e38e16fc62a321eb9933"
+  integrity sha512-IcowPnhqovEbDWPSoKnGRdzk8+FOI6EelL1bIJGnHRBz6qXhOBDj88lC53JEKE5WGI6cscbUh/v2SSiT2oTVpA==
+
 "@next/react-dev-overlay@9.4.4":
   version "9.4.4"
   resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-9.4.4.tgz#4ae03ac839ff022b3ce5c695bd24b179d4ef459d"

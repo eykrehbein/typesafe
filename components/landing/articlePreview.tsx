@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { px, percent, multiplePx } from "@atomize/component";
+import { useFetchImage } from "@eyk/hooks";
 
 import { Tag, ArticleProps } from "@/utils/types";
 import { Box } from "@/components/Box";
@@ -9,11 +10,7 @@ import { Image } from "@/components/Image";
 import { CardBody } from "@/components/landing/cardBody";
 import { Text } from "@/components/Text";
 import { Row } from "@/components/Row";
-import {
-    generateFriendlyString,
-    usePreloadedImage,
-    useBreakpoints,
-} from "@/utils/helpers";
+import { generateFriendlyString, useBreakpoints } from "@/utils/helpers";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { ThemeContext } from "@/utils/context";
 
@@ -26,7 +23,7 @@ export const ArticlePreview = ({
 }: ArticleProps) => {
     const router = useRouter();
 
-    const { hasLoaded } = usePreloadedImage(thumbnail);
+    const { hasLoaded } = useFetchImage(thumbnail);
 
     const { isSmaller } = useBreakpoints();
 

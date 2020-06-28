@@ -1,14 +1,13 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import Head from "next/head";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { GetStaticProps } from "next";
 import ReactMarkdown from "react-markdown";
 import { percent, px, multiplePx } from "@atomize/component";
-import hljs from "highlight.js";
+import { useFetchImage } from "@eyk/hooks";
 
 import {
     useArticlesList,
     generateFriendlyString,
-    usePreloadedImage,
     useBreakpoints,
 } from "@/utils/helpers";
 import { Box } from "@/components/Box";
@@ -27,7 +26,7 @@ interface ArticlePageProps {
 }
 
 export default ({ articleInfo, content }: ArticlePageProps) => {
-    const { hasLoaded: hasThumbnailLoaded } = usePreloadedImage(
+    const { hasLoaded: hasThumbnailLoaded } = useFetchImage(
         articleInfo.thumbnail
     );
 

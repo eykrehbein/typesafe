@@ -2,6 +2,7 @@ import React, { useContext, useState, useRef } from "react";
 import Tilt from "react-parallax-tilt";
 import Link from "next/link";
 import { useHoverDirty } from "react-use";
+import { useFetchImage } from "@eyk/hooks";
 
 import { Box } from "@/components/Box";
 import { px, percent, multiplePx } from "@atomize/component";
@@ -10,11 +11,7 @@ import { Image } from "@/components/Image";
 import { Text } from "@/components/Text";
 import { CardBody } from "@/components/landing/cardBody";
 import { ArticleProps } from "@/utils/types";
-import {
-    generateFriendlyString,
-    usePreloadedImage,
-    useBreakpoints,
-} from "@/utils/helpers";
+import { generateFriendlyString, useBreakpoints } from "@/utils/helpers";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { ThemeContext } from "@/utils/context";
 
@@ -26,7 +23,7 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
     const featuredImageRef = useRef<HTMLImageElement>();
     const { theme } = useContext(ThemeContext);
 
-    const { hasLoaded } = usePreloadedImage(article.thumbnail);
+    const { hasLoaded } = useFetchImage(article.thumbnail);
 
     const { isNormal } = useBreakpoints();
 

@@ -29,35 +29,6 @@ export const useArticlesList = () => {
 export const generateFriendlyString = (str: string) =>
     str.replace(/([^a-z0-9]+)/gi, "-").toLowerCase();
 
-export const usePreloadedImage = (src: string) => {
-    const [hasLoaded, setHasLoaded] = useState(false);
-    const [hasError, setHasError] = useState(false);
-
-    useEffect(() => {
-        const image = new Image();
-        image.src = src;
-
-        const errorHandler = () => {
-            setHasError(true);
-            setHasLoaded(true);
-        };
-
-        const loadedHandler = () => {
-            setHasLoaded(true), setHasError(false);
-        };
-
-        image.onload = loadedHandler;
-        image.onerror = errorHandler;
-
-        return () => {
-            image.removeEventListener("error", errorHandler);
-            image.removeEventListener("load", loadedHandler);
-        };
-    }, [src]);
-
-    return { hasLoaded, hasError };
-};
-
 const useBreakpoint = createBreakpoint({
     NORMAL: 1400,
     SMALL: 1070,

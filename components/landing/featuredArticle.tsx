@@ -38,7 +38,7 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
                 <CardBody
                     disableHoverTransform
                     $marginTop={px(40)}
-                    $padding={multiplePx(50, 10, 50, 30)}
+                    $padding={multiplePx(50, 20, 50, 30)}
                     $width={percent(100)}
                 >
                     <Row $align="center">

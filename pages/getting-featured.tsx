@@ -8,7 +8,6 @@ import { Text } from "@/components/Text";
 import { Image } from "@/components/Image";
 import { Button } from "@/components/Button";
 import { Anchor } from "@/components/Anchor";
-import { usePreloadedImage } from "@/utils/helpers";
 import { ThemeContext } from "@/utils/context";
 
 export default () => {

@@ -1,6 +1,6 @@
 # Typesafe
 
-The frontend blog. Made with :heart: and the latest [tech](#tech-used)
+The frontend blog that's made for everyone
 
 https://typesafe.blog
 

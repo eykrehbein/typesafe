@@ -8,6 +8,8 @@ import { Text } from "@/components/Text";
 import { Row } from "@/components/Row";
 import { ArticleProps } from "@/utils/types";
 import { ThemeContext } from "@/utils/context";
+import { LoadingIndicator } from "@/components/LoadingIndicator";
+import { useFetchImage } from "@eyk/hooks";
 
 interface MobileArticlePreviewProps {
     article: ArticleProps;
@@ -17,6 +19,8 @@ export const MobileArticlePreview = ({
     article,
 }: MobileArticlePreviewProps) => {
     const { theme } = useContext(ThemeContext);
+
+    const { hasLoaded: hasThumbnailLoaded } = useFetchImage(article.thumbnail);
 
     return (
         <Link
@@ -30,14 +34,23 @@ export const MobileArticlePreview = ({
                     $padding={multiplePx(30, 0)}
                     $width={percent(100)}
                 >
-                    <Image
-                        alt="Featured Article Image"
-                        src={article.thumbnail}
-                        $boxShadow="-4px 4px 30px rgba(0,0,0,.25)"
-                        $borderRadius={px(5)}
-                        $width={px(570)}
-                        $maxWidth={percent(100)}
-                    />
+                    {hasThumbnailLoaded && (
+                        <Image
+                            alt="Featured Article Image"
+                            src={article.thumbnail}
+                            $boxShadow="-4px 4px 30px rgba(0,0,0,.25)"
+                            $borderRadius={px(5)}
+                            $width={px(570)}
+                            $maxWidth={percent(100)}
+                        />
+                    )}
+
+                    {!hasThumbnailLoaded && (
+                        <LoadingIndicator
+                            $width={percent(100)}
+                            $height={px(250)}
+                        />
+                    )}
 
                     <Box $marginTop={px(20)} $maxWidth={percent(100)}>
                         <Text

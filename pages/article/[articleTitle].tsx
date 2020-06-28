@@ -109,7 +109,7 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
                             <LoadingIndicator
                                 $marginTop={px(40)}
                                 $width={percent(100)}
-                                $height={px(400)}
+                                $height={px(isMobile ? 230 : 400)}
                                 $maxWidth={px(570)}
                             />
                         )}

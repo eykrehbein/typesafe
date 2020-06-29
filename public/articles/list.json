@@ -9,7 +9,7 @@
         ],
         "thumbnail": "/fetch_images_with_hooks.jpg",
         "title": "Fetch images with a React hook",
-        "subTitle": "Why fetching images with a React hook can be benificial",
+        "subTitle": "Why fetching images with a React hook can be beneficial",
         "author": {
             "name": "Eyk Rehbein",
             "github": "https://github.com/eykrehbein",

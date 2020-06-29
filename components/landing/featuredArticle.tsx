@@ -20,7 +20,7 @@ interface FeaturedArticleProps {
 }
 
 export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
-    const featuredImageRef = useRef<HTMLImageElement>();
+    const featuredImageRef = useRef<HTMLImageElement>(null);
     const { theme } = useContext(ThemeContext);
 
     const { hasLoaded } = useFetchImage(article.thumbnail);

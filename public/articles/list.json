@@ -1,17 +1,15 @@
 {
     "featured": {
-        "date": "22nd JUNE 2020",
+        "date": "30th JUNE 2020",
         "tags": [
-            { "name": "JAVASCRIPT" },
+            { "name": "REACT", "backgroundColor": "#60DBFB" },
             {
-                "name": "FEATURED",
-                "backgroundColor": "black",
-                "color": "#00CC87"
+                "name": "FEATURED"
             }
         ],
-        "thumbnail": "/tag_function.png",
-        "title": "The logic behind Javascript Tag Functions",
-        "subTitle": "Why it is good to know how tag functions work",
+        "thumbnail": "/fetch_images_with_hooks.jpg",
+        "title": "Fetch images with a React hook",
+        "subTitle": "Why fetching images with a React hook can be benificial",
         "author": {
             "name": "Eyk Rehbein",
             "github": "https://github.com/eykrehbein",
@@ -21,6 +19,20 @@
         "timeToRead": 3
     },
     "standard": [
+        {
+            "date": "22nd JUNE 2020",
+            "tags": [{ "name": "JAVASCRIPT" }],
+            "thumbnail": "/tag_function.png",
+            "title": "The logic behind Javascript Tag Functions",
+            "subTitle": "Why it is good to know how tag functions work",
+            "author": {
+                "name": "Eyk Rehbein",
+                "github": "https://github.com/eykrehbein",
+                "linkedIn": "https://linkedin.com/in/eykrehbein",
+                "profilePicture": "/eyk_profile_picture.png"
+            },
+            "timeToRead": 3
+        },
         {
             "date": "22nd JUNE 2020",
             "thumbnail": "/publish_on_typesafe.jpg",

@@ -66,7 +66,7 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
                             {!hasLoaded && (
                                 <LoadingIndicator
                                     $width={px(570)}
-                                    $height={px(350)}
+                                    $height={px(380)}
                                 />
                             )}
                         </Tilt>

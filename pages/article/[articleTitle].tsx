@@ -54,6 +54,8 @@ export default ({ articleInfo, content }: ArticlePageProps) => {
             </Head>
 
             <Box
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { delay: 0.2 } }}
                 $align="center"
                 $padding={multiplePx(0, isMobile ? 0 : 10)}
                 $width={percent(100)}

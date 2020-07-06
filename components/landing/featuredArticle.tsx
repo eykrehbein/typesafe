@@ -57,6 +57,8 @@ export const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
                                 ref={featuredImageRef}
                                 $boxShadow="-4px 4px 30px rgba(0,0,0,.25)"
                                 $borderRadius={px(10)}
+                                $objectFit="cover"
+                                $maxHeight={px(380)}
                                 $width={px(570)}
                                 $maxWidth={px(570)}
                                 $position={hasLoaded ? undefined : "absolute"}

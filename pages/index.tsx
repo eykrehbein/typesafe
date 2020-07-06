@@ -7,6 +7,8 @@ import { useArticlesList, useBreakpoints } from "@/utils/helpers";
 import Head from "next/head";
 import { MobileArticlePreview } from "@/components/landing/mobileArticlePreview";
 import { MobileArticlePreviews } from "@/components/landing/mobileArticlePreviews";
+import { Box } from "@/components/Box";
+import { percent } from "@atomize/component";
 
 export default () => {
     const articles = useArticlesList();
@@ -27,18 +29,25 @@ export default () => {
                 />
             </Head>
 
-            {isMobile && (
-                <MobileArticlePreviews
-                    articles={[articles.featured, ...articles.standard]}
-                />
-            )}
+            <Box
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { delay: 0.2 } }}
+                $height={percent(100)}
+                $width={percent(100)}
+            >
+                {isMobile && (
+                    <MobileArticlePreviews
+                        articles={[articles.featured, ...articles.standard]}
+                    />
+                )}
 
-            {!isMobile && (
-                <>
-                    <FeaturedArticle article={articles.featured} />
-                    <ArticlePreviews articles={articles.standard} />{" "}
-                </>
-            )}
+                {!isMobile && (
+                    <>
+                        <FeaturedArticle article={articles.featured} />
+                        <ArticlePreviews articles={articles.standard} />{" "}
+                    </>
+                )}
+            </Box>
         </>
     );
 };

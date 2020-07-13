@@ -1,3 +1,3 @@
 import { createBaseComponent } from "@atomize/component";
 
-export const Input = createBaseComponent("input");
+export const Input = createBaseComponent("input")`la;`;

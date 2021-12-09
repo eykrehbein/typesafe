@@ -17,7 +17,7 @@
         "babel-plugin-module-resolver": "^4.0.0",
         "babel-plugin-styled-components": "^1.10.7",
         "highlight.js": "^10.1.1",
-        "next": "9.4.4",
+        "next": "11.1.3",
         "node-sass": "^4.14.1",
         "raw-loader": "^4.0.1",
         "react": "16.13.1",
